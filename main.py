@@ -2,8 +2,9 @@ import graphGenerate as grph
 import visual as draw
 import bellman as bell
 import dijkstra as dk
+import area
 
-nodes = 7
+nodes = 12
 edge_limit = 3
 cost_limit = 4
 
@@ -22,8 +23,6 @@ def run():
     matrix = grph.generate(nodes,edge_limit, cost_limit)
     graph = draw.showGraph(matrix)
 
-    return
-
     src = int(input("enter source node => "))
     dest = int(input("enter destination node => "))
     algo = input("enter choice: 1.Bellman-Ford 2.Dijkstra => ")
@@ -36,6 +35,7 @@ def run():
     print("cost =>",str(shortest[dest][1]))
     draw.highlight(graph,path)
 
-
-for _ in range(5):
-    run()
+if __name__ == "__main__":
+    user = input(" 0. Area Map / 1. Random generated (input 0 or 1)->") == '0'
+    if user: area.run()
+    else:run()

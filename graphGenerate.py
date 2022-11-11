@@ -1,7 +1,7 @@
 import numpy as np
 import random as r
 
-
+# Implementing RG-CAD to create an adjacency matrix
 def generate(nodes, edge_limit, cost_limit):
     matrix = np.zeros((nodes, nodes), dtype=int)
 
@@ -9,12 +9,9 @@ def generate(nodes, edge_limit, cost_limit):
     line = list(range(0, nodes))
     r.shuffle(line)
 
-    print(line)
-
     # add random list to adjecent matrix
     for i in range(0, nodes-1):
         value = round(r.uniform(1,cost_limit))
-        print(value)
         matrix[line[i]][line[i+1]] = value
         matrix[line[i+1]][line[i]] = value
 
